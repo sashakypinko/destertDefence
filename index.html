@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        body {
+            background: black;
+            font-family: cursive;
+            color: white;
+            -webkit-text-stroke: 3px black;
+        }
+
+        #container {
+            position: relative;
+            display: inline-block;
+        }
+
+        #gameOver {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 85px;
+        }
+
+        .stats-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 48px;
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(
+                to left bottom,
+                rgba(0, 0, 0, 0.9),
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0)
+            );
+        }
+
+
+        .tools-container {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            font-size: 48px;
+            display: none;
+            padding: 30px;
+            justify-content: space-between;
+            background: linear-gradient(
+                to right top,
+                rgba(0, 0, 0, 0.9),
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0)
+            );
+        }
+
+        .building-shop-container {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-size: 48px;
+            display: flex;
+            padding: 30px;
+            justify-content: space-between;
+            background: linear-gradient(
+                    to left top,
+                    rgba(0, 0, 0, 0.9),
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0)
+            );
+        }
+
+        .level-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 48px;
+            display: flex;
+            padding-left: 20px;
+            justify-content: space-between;
+            background: linear-gradient(
+                    to right bottom,
+                    rgba(0, 0, 0, 0.9),
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0)
+            );
+        }
+
+        .stats-item {
+            margin: 5px;
+        }
+
+        .fa-heart {
+            color: #ff0000;
+        }
+
+        .fa-coins {
+            color: #ffd700;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            width: 65px;
+            height: 65px;
+            font-size: 55px;
+            padding: 3px;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.44);
+        }
+
+        .btn:active {
+            background-color: rgba(0, 0, 0, 0.68);
+        }
+
+        .info {
+            color: #8c8c8c !important;
+        }
+
+        .success {
+            color: #14ff20 !important;
+        }
+
+        .danger {
+            color: #ff0000 !important;
+        }
+
+        .shop-item {
+            border: 2px solid #00000054;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .shop-item:hover {
+            background-color: rgba(0, 0, 0, 0.38);
+        }
+
+        .shop-item:active {
+            background-color: rgba(238, 230, 230, 0.42);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <canvas></canvas>
+    <div id="gameOver">GAME OVER</div>
+    <div class="level-container">
+        Lvl:
+        <span id="level">0</span>
+    </div>
+    <div class="stats-container">
+        <div class="stats-item">
+            <i class="fa-solid fa-coins"></i>
+            <span id="coins">0</span>
+        </div>
+        <div class="stats-item">
+            <i class="fa-solid fa-heart"></i>
+            <span id="hearts">0</span>
+        </div>
+    </div>
+    <div id="buildingTools" class="tools-container">
+        <div class="stats-item">
+            <button id="cancelTools" class="btn info">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="stats-item">
+            <button id="upgradeBuilding" class="btn success">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+        <div class="stats-item">
+            <button id="sellBuilding" class="btn danger">
+                <i class="fa-solid fa-coins danger"></i>
+            </button>
+        </div>
+    </div>
+    <div id="buildingShop" class="building-shop-container"></div>
+</div>
+<script src="src/Element.js"></script>
+<script src="src/Sprite.js"></script>
+<script src="src/Enemy.js"></script>
+<script src="src/DeadEnemy.js"></script>
+<script src="src/PlacementTile.js"></script>
+<script src="src/Building.js"></script>
+<script src="src/Projectile.js"></script>
+<script src="src/Explosion.js"></script>
+<script src="src/waypoints.js"></script>
+<script src="src/placementTilesData.js"></script>
+<script src="src/Game.js"></script>
+<script src="src/BuildingShop.js"></script>
+<script src="src/index.js"></script>
+</body>
+</html>
